@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven {
+        url = uri("https://packages.atlassian.com/maven/repository/public")
+    }
+    maven {
+        url 'https://nivelics-710950626079.d.codeartifact.us-east-1.amazonaws.com/maven/automation/'
+        credentials {
+            username "aws"
+            password "eyJ2ZXIiOjEsImlzdSI6MTY0OTE5NTc3MywiZW5jIjoiQTEyOEdDTSIsInRhZyI6IjRUb1YxZzczX0VnUk9sWURRaDhhVmciLCJleHAiOjE2NDkyMzg5NzMsImFsZyI6IkExMjhHQ01LVyIsIml2IjoiSDhNbkh6V0VGTWt2YUhxZiJ9.vfSN8VlTEID0xkpfd5yoPg.VjWYQjCSM3pTBL0t.6EZjjjkuvzEd4LtYxQrzccq4bWlMQ3sRKeKeUHVgEEZX0jR5tbxyy8qiLpOM5pj5OWqaMepQMAlSb4icQQSm2aWe0HTMTiYh1gpvKzJ2gf8yuLRQsqdAVgWJXcpGpC1SzWGFK0dfA9e_d9pN4anyoqjYqX_tJ2OXl_bS8wJzA3-PvD8bVSl550F0wZtxFL_mRlc-ugRU7AQGIT8_kPgymOjjIKwsR07I9Fjk7omnHGM2K5EWkYkMZcT42AYsAvdL5W950oj6ENFwkakYpGVG0sNIvExYGC11NMU2kqkbtPSpFB0il8MG2f6ccd9Z6ZkAzG-XPkLiQ_M9xLnsXi017idBzV9ekF56HgN9UuSaAv8FVoMHhEvpnubzVpMGoDBn1n079suVh6UoONFPDuN810GqVC0KsVk6puS9fDiPsvGY8T4Clb26Pe9dk9iLYYlWa6I4Q92mMv1-FOIXcxaVLtleykH7gh19rl5Ekh43yO2vDAAxKSRNgwpl08kmeh527J9UE-XIRHP2GJO-6-ZIN6AJnKAKmiPFIgUjLc3-RxsAJnJkDyWnO8_4zSoPw1OnkrF3728AzBDdun7seuKmV_tVxyBkzMMf8yl1M62u-2Neen5a557uxsTaHJyJFH7LFoa2nq8-mkn5FvsrVWo4raZnxIovM0vMMdIzA8GFTShRLEISzt-bwAsKSNMxPYXGy83OPrgQ1HVloGGk8orZ96JTawMfc-DnKn9cBLuTa_HALhV7602PX251ZgpR7YiL5TrtXyAJyNnJba8fKw5ZOIKD2kcYz8l241zKTePDXhr-s3kfgPjZIXFoVDNS0SPpZPzCNyuPjAMvQdyU0FP-QWjaS0479XOpNQYy7IK3cQVjpRNdREk14HJfnEp13p3QmFm5bnel8WrwwhghzA1LUr62.o5vBxw_9LYXpmX4xILAOzw"
+        }
+    }
+}
+
+dependencies {
+    testImplementation group: 'org.testng', name: 'testng', version: '7.5'
+    implementation 'com.nivelics:archetype-automation-java:0.2.25.35-BETA'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+test {
+    useTestNG()
+}
